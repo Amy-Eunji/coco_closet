@@ -78,7 +78,7 @@ const LikeIcon = styled(Like)`
   fill: currentColor;
   transition: fill 0.3s ease, transform 0.3s ease;
   &:hover {
-    transform: scale(1.3);
+    transform: scale(1.2);
     fill: red;
   }
 `;

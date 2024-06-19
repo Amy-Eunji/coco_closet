@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 import Header from "../templates/Header/Header";
 import Products from "../templates/Main/Products";
+import Footer from "../templates/Footer/Footer";
 
 import Banner from "../assets/Banner.png";
 const Main = () => {
@@ -12,6 +13,7 @@ const Main = () => {
         <img src={Banner} alt="" />
       </BannerWrap>
       <Products />
+      <Footer />
     </Container>
   );
 };
