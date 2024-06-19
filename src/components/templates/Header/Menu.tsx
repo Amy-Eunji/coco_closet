@@ -52,6 +52,7 @@ const Modal = styled.div`
 const MenuItem = styled.div`
   padding: 10px;
   line-height: 3;
+  font-size: 25px;
   cursor: pointer;
   &:hover {
     background-color: #ebebeb;

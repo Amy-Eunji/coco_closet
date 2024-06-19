@@ -22,7 +22,7 @@ const Container = styled.div`
 `;
 
 const BannerWrap = styled.div`
-  margin: 50px auto;
+  margin: 100px auto;
   display: flex;
   justify-content: center;
   img {
