@@ -11,11 +11,13 @@ const Products = () => {
   return (
     <Container>
       <ItemWrap>
-        {PRODUCTSINFO.map(({ id, image, pdname, price }, index) => {
+        {PRODUCTSINFO.map(({ id, image, pdname, price, url }, index) => {
           const discountPrice = price * 0.9;
           return (
             <Item key={`${id}-${index}`}>
-              <img src={image} alt={pdname} />
+              <a href={url} target="_blank" rel="noreferrer">
+                <img src={image} alt={pdname} />
+              </a>
               <Info>
                 <Name>🖤 {pdname} 🖤</Name>
                 <Price>{formatPrice(price)}</Price>
@@ -32,7 +34,7 @@ const Products = () => {
 };
 
 const Container = styled.div`
-  margin: 0 50px 0 50px;
+  width: 100%;
 `;
 const ItemWrap = styled.div`
   display: grid;
@@ -44,16 +46,19 @@ const ItemWrap = styled.div`
 const Item = styled.div`
   display: flex;
   flex-direction: column;
+
   img {
     width: 100%;
     max-width: 300px;
     height: 300px;
     margin-bottom: 10px;
+    border-radius: 8px;
   }
 `;
 
 const Info = styled.div`
   padding-left: 15px;
+  line-height: 30px;
 `;
 
 const Name = styled.div`
@@ -93,4 +98,5 @@ const PlusCartIcon = styled(PlusCart)`
     transform: scale(1.2);
   }
 `;
+
 export default Products;
