@@ -48,6 +48,8 @@ const Products = () => {
 
 const Container = styled.div`
   width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
 `;
 const ItemWrap = styled.div`
   display: grid;
@@ -55,6 +57,12 @@ const ItemWrap = styled.div`
   grid-template-columns: repeat(4, 300px);
   grid-template-rows: repeat(3, 1fr);
   gap: 40px;
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 2fr));
+  }
+  @media (max-width: 800px) {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 2fr));
+  }
 `;
 const Item = styled.div`
   display: flex;
