@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 
 import { PRODUCTSINFO } from "../../datas/ProductsInfo";
@@ -5,9 +6,18 @@ import { ReactComponent as Like } from "../../assets/Products/Like.svg";
 import { ReactComponent as PlusCart } from "../../assets/Products/PlusCart.svg";
 
 const Products = () => {
+  const [likedItems, setLikedItems] = useState<{ [key: string]: boolean }>({});
+
+  const toggleLike = (id: number) => {
+    setLikedItems((prevLikedItems) => ({
+      ...prevLikedItems,
+      [id]: !prevLikedItems[id],
+    }));
+  };
   const formatPrice = (price: { toLocaleString: (arg0: string) => any }) => {
     return `₩${price.toLocaleString("ko-KR")}`;
   };
+
   return (
     <Container>
       <ItemWrap>
@@ -22,7 +32,10 @@ const Products = () => {
                 <Name>🖤 {pdname} 🖤</Name>
                 <Price>{formatPrice(price)}</Price>
                 <Discount>{formatPrice(discountPrice)}</Discount>
-                <LikeIcon />
+                <LikeIcon
+                  isLiked={likedItems[id]}
+                  onClick={() => toggleLike(id)}
+                />
                 <PlusCartIcon />
               </Info>
             </Item>
@@ -75,16 +88,16 @@ const Discount = styled.div`
   font-size: 20px;
 `;
 
-const LikeIcon = styled(Like)`
+const LikeIcon = styled(Like)<{ isLiked: boolean }>`
   margin: 5px 10px 0 0;
   width: 25px;
   height: 25px;
   cursor: pointer;
   fill: currentColor;
   transition: fill 0.3s ease, transform 0.3s ease;
+  fill: ${({ isLiked }) => (isLiked ? "red" : "currentColor")};
   &:hover {
     transform: scale(1.2);
-    fill: red;
   }
 `;
 
