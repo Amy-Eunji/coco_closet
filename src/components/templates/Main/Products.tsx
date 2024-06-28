@@ -57,7 +57,7 @@ const ItemWrap = styled.div`
   grid-template-columns: repeat(4, 300px);
   grid-template-rows: repeat(3, 1fr);
   gap: 40px;
-  @media (max-width: 1200px) {
+  @media (max-width: 1280px) {
     grid-template-columns: repeat(auto-fill, minmax(200px, 2fr));
   }
   @media (max-width: 800px) {
